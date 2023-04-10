@@ -1,12 +1,20 @@
-const { createVideogame}=require('../controllers/videogamesController');
+const {getVideogamesApi, createVideogame, getVideogamesById, getAllVideogames, searchVideogameByName}=require('../controllers/videogamesController');
 
-const getVideogamesHandler =(req,res)=>{
-    
-res.send('hola llego videogames')
+const getVideogamesHandler =async (req,res)=>{
+    const {name}=req.query;
+    const results = name? searchVideogameByName(name) : await getVideogamesApi();
+    res.status(200).json(results)
 }
-const getVideogamesIdHandler =(req,res)=>{
-    const {id}=req.params
-    res.send('hola llego videogames')
+const getVideogamesIdHandler = async (req,res)=>{
+    const {id}=req.params;
+    const source =isNaN(id)? "BDD" : "API";
+    try {
+        const videogames= await getVideogamesById(id, source)
+        res.status(200).json(videogames)
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
+   
 }
 const createVideogamesHandler=async (req,res)=>{
     try {
