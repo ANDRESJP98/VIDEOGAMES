@@ -1,0 +1,31 @@
+.nav{
+    align-items: center;
+}
+.ul {
+    list-style-type: none;
+    
+  }
+
+  
+.li {
+    float:left;
+    background-color: black;
+    margin-right: 1px;
+    position: relative;
+    top: 10px; left: 500px;
+    width: 40px;
+    height: fit-content;
+    font-size: large;
+  }
+  
+.a {
+    color: azure;
+    padding: 0 4px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+.a:hover {
+    background-color: white;
+    color: #D7C8B6;
+  }

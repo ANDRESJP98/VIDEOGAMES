@@ -1,23 +1,28 @@
 const axios=require('axios');
 const {API_KEY} = process.env;
-const {genre}=require('../db')
+const {Genre}=require('../db')
 
-const getGenresApi= async (name)=>{
+const getGenresApi= async ()=>{
     try {
         const infoApi =await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`);
-        const allGenres=infoApi.data.results;
-        const infoApiId =allGenres.map(elem => axios.get(`https://api.rawg.io/api/genres/${elem.id}?key=${API_KEY}`));
+        const allGenresApi=infoApi.data.results;
+        const infoApiId =allGenresApi.map(elem => axios.get(`https://api.rawg.io/api/genres/${elem.id}?key=${API_KEY}`));
         const infoApiAll =await axios.all(infoApiId);
         const infoApiresponses =infoApiAll.map(response=>{
-            const {id, name}=response.data;
+            const {name}=response.data;
             return {
-                id,
                 name
             };
         });
-        await genre.findAll({where:{name:name}})
-        return infoApiresponses;
-        
+        console.log(infoApiresponses);
+
+         infoApiresponses.forEach(elem=>{
+            Genre.findOrCreate({
+                where:{name:elem.name}
+            })})
+
+            const allGenres=await Genre.findAll();
+            return allGenres
     } catch (error) {
         console.error(error)
         return [];

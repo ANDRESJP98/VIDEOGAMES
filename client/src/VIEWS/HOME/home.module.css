@@ -1,0 +1,37 @@
+.container{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://statics-cuidateplus.marca.com/cms/styles/natural/azblob/videojuegos_esportok.jpg.webp?itok=Fm-0zgGU");
+    background-size:cover;
+    background-position-x: center;
+    width: 1220px;
+    height: 600px;
+    
+
+}
+.button{
+    border-radius: 15px;
+    background-position-X:top;
+    background-image: url("https://p4.wallpaperbetter.com/wallpaper/990/956/27/retro-games-neon-hd-wallpaper-preview.jpg");
+    border-color: rgb(75, 101, 235);
+    border-width:3px;
+    color:rgb(75, 101, 235);
+    align-content: center;
+    position: relative;
+    top: 100px; left: 530px;
+    width: 180px;
+    height: 60px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size:larger;
+    
+}
+.cardContainer{
+border:1px solid black;
+justify-content: space-around;
+display:inline;
+flex-direction:row;
+border-radius: 15px;
+flex-wrap:wrap;
+gap: 1em;
+}

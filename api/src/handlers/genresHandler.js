@@ -1,7 +1,7 @@
 const {getGenresApi}=require('../controllers/genresController')
 const getGenresHandler = async(req,res)=>{
-    const {name}=req.body
-    const results =  await getGenresApi(name);
-    res.status(200).json(results)
+   
+    const results =  await getGenresApi();
+    res.status(200).send(results)
 }
 module.exports = {getGenresHandler};

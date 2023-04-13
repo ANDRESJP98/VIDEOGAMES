@@ -1,6 +1,16 @@
 .card{
     border:1px solid black;
-    width: fit-content;
+    width: 300px;
     height: fit-content;
     border-radius: 15px;
+    text-align: center;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: azure;
+    font-weight: 600;
+    background-color: black;
+    position: relative;
+    top: 40px; left: 10px;
+
 }
+
